@@ -1,7 +1,7 @@
 // __tests__/index.test.jsx
 
 import { render, screen } from '@testing-library/react'
-import Home from '../pages/index'
+import Home from './index'
 import '@testing-library/jest-dom'
 
 describe('Home', () => {
@@ -13,5 +13,10 @@ describe('Home', () => {
     })
 
     expect(heading).toBeInTheDocument()
+  })
+
+  it('renders homepage unchanged', () => {
+    const { container } = render(<Home />)
+    expect(container).toMatchSnapshot()
   })
 })
